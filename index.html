@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Zero - Co-creation Space & Startup Accelerator</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Reset & CSS Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #444444;
+            --text-muted: #777777;
+            --accent-color: #000000;
+            --border-color: #eaeaea;
+            --font-sans: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+            --font-display: 'Space Grotesk', 'Sarabun', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Main Content & Hero */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 0;
+        }
+
+        .hero {
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+
+        .tagline {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            font-weight: 400;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .stat-card {
+            padding: 2.25rem 2rem;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Clickable Card Specific Styles */
+        .stat-card.clickable-card {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .stat-card.clickable-card::after {
+            content: '→';
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-card.clickable-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .stat-card:hover .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-number {
+            font-family: var(--font-sans);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .stat-number.long-text {
+            font-size: 1.7rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .footer-right {
+            text-align: right;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .stat-number {
+                font-size: 1.85rem;
+            }
+            .stat-number.long-text {
+                font-size: 1.45rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tagline {
+                font-size: 2.25rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            main {
+                padding: 4rem 0;
+            }
+            
+            .hero {
+                margin-bottom: 2.5rem;
+            }
+
+            .stat-card {
+                padding: 1.75rem 1.5rem;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1 class="tagline">Where Ideas Accelerate.</h1>
+                <p class="description">
+                    พื้นที่แห่งความร่วมมือและการบ่มเพาะสตาร์ทอัพระดับแนวหน้า เพื่อสร้างสรรค์และผลักดันนวัตกรรมแห่งอนาคตไปข้างหน้าด้วยกัน
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <!-- User Stat (Clickable) -->
+                <!-- ให้แทนที่เครื่องหมาย # ด้วย URL หน้าผู้เรียนบน Google Sites ของคุณ เช่น https://sites.google.com/view/.../learners -->
+                <a href="https://sites.google.com/view/garage-zero/learners" target="_top" class="stat-card clickable-card">
+                    <div class="stat-label">ผู้เรียน</div>
+                    <div class="stat-number" id="student-count" data-target="114">0</div>
+                </a>
+
+                <!-- Startup Team Stat -->
+                <div class="stat-card">
+                    <div class="stat-label">ทีมสตาร์ทอัพ</div>
+                    <div class="stat-number">รอระบุ</div>
+                </div>
+
+                <!-- Ecosystem Stat -->
+                <div class="stat-card">
+                    <div class="stat-label">ระบบนิเวศ</div>
+                    <div class="stat-number">รอระบุ</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-left">
+                <div>&copy; 2026 Garage Zero. All rights reserved.</div>
+                <div>Designed for Silpakorn Startup Ecosystem</div>
+            </div>
+            <div class="footer-right">
+                <div>ติดต่อ ผศ.ดร.จารุตม์ คุณานพดล (อ.จา)</div>
+                <div>อีเมล kunanoppadol_j@su.ac.th</div>
+                <div>เบอร์โทร 0818996377</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Count-up Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const studentCounter = document.getElementById('student-count');
+
+            // Format number helper
+            const formatNumber = (num) => {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            };
+
+            // Generic animate counter function
+            const animateCounter = (element, target, prefix = '') => {
+                const duration = 2000; // 2 seconds
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out expo function
+                    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    
+                    const currentValue = Math.floor(easeProgress * target);
+                    element.innerText = prefix + formatNumber(currentValue);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        element.innerText = prefix + formatNumber(target);
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+            };
+
+            // Animate value (pure number without prefix)
+            animateCounter(studentCounter, 114, "");
+        });
+    </script>
+</body>
+</html>
