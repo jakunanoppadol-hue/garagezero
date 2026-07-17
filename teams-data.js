@@ -3,19 +3,20 @@ const teamsDatabase = {
     greenhotelx: {
         name: "GreenHotelX",
         category: "GreenTech",
-        stage: "Ideation",
+        stage: "Validating",
         seeking: "Customer validation",
         members: "4 คน",
         description: "WebApp สนับสนุนงานด้านความยั่งยืนให้กับโรงแรมไทย เพื่อช่วยติดตามประหยัดพลังงาน การจัดการขยะ และสิ่งแวดล้อมตามเกณฑ์มาตรฐานสากล",
         summary: "GreenHotelX เป็นเว็บแอปพลิเคชันที่สร้างขึ้นมาเพื่อช่วยเหลือและสนับสนุนการปฏิบัติงานด้านสิ่งแวดล้อมและความยั่งยืน (Sustainability) แก่กลุ่มอุตสาหกรรมโรงแรมในประเทศไทย โดยระบบจะช่วยติดตาม ประเมินผลความประหยัดพลังงาน จัดการขยะ และลดรอยเท้าคาร์บอน ให้เป็นไปตามหลักเกณฑ์มาตรฐานสิ่งแวดล้อมสากล",
         pitchUrl: "https://docs.google.com/presentation/d/1YZu_7gUgGtysDm5FVmmlJilFF569rHDzKbNjERzUx-Q/edit?usp=drive_link",
         bmcUrl: "https://docs.google.com/spreadsheets/d/14tAtmbUCwNBFHRvhqEexJAj9tP3bkenWqtd_1QyNIig/edit?usp=drive_link",
-        backupUrl: "https://docs.google.com/document/d/1qb7gPJEsi_NiaxuMkmZF0pO5mrYVRx7vm6_mIVNxgiQ/edit?usp=drive_link"
+        backupUrl: "https://docs.google.com/document/d/1qb7gPJEsi_NiaxuMkmZF0pO5mrYVRx7vm6_mIVNxgiQ/edit?usp=drive_link",
+        funding: "SU IP2MK 100,000 บาท"
     },
-    smks: {
-        name: "SMKS",
+    startupmarketing: {
+        name: "StartupMarketing",
         category: "MarTech",
-        stage: "Ideation",
+        stage: "Ideating",
         seeking: "Case study",
         members: "3 คน",
         description: "บริการจัดการด้านการตลาดดิจิทัลสำหรับสตาร์ทอัพ เพื่อช่วยวางแผนกลยุทธ์ ค้นหากลุ่มเป้าหมาย และเพิ่มยอดขายอย่างคุ้มค่า",
@@ -23,5 +24,17 @@ const teamsDatabase = {
         pitchUrl: "https://docs.google.com/presentation/d/1iLNR9Qtvv-2BL8vsXGYO_g8wRMa9i6Cl9McW6Uzx0I0/edit?usp=drive_link",
         bmcUrl: "https://docs.google.com/spreadsheets/d/1PIEKiz7CozxoZ7_4XCrejRPC3_aX5okFMeckpljxwW8/edit?usp=drive_link",
         backupUrl: "https://docs.google.com/document/d/1DSpp4xHpdcjrkRr8kbaiBxWe4tAAqNnsKuGYGnHkyZY/edit?usp=drive_link"
+    },
+    "3dphand": {
+        name: "3DP Hand",
+        category: "HealthTech",
+        stage: "Ideating",
+        seeking: "Prototyping",
+        members: "6 คน",
+        description: "แขนเทียมแบบวัดตัวตัดที่สร้างด้วยเทคโนโลยีการพิมพ์สามมิติเพื่อช่วยยกระดับคุณภาพชีวิตพร้อมทั้งส่งเสริมศักยภาพในการทำงานของผู้มีข้อจำกัดทางร่างกาย",
+        summary: "3DP Hand เป็นโครงการพัฒนาและผลิตชิ้นงานแขนเทียมแบบวัดตัวตัด (Custom-fit) เฉพาะบุคคล โดยอาศัยเทคโนโลยีการพิมพ์สามมิติ (3D Printing) เพื่อช่วยลดต้นทุนการผลิต มอบแขนเทียมที่มีน้ำหนักเบาและเข้ากับสรีระจริงของร่างกายผู้ใช้ได้ดียิ่งขึ้น เพื่อยกระดับคุณภาพชีวิตและช่วยส่งเสริมโอกาสในการเข้าถึงอาชีพและการทำงานของผู้มีข้อจำกัดทางร่างกาย",
+        pitchUrl: "https://docs.google.com/presentation/d/1h6A2tTQA42RRBzfc_W3avSvnAmsblapbJhJqDqDXUV8/edit?usp=drive_link",
+        bmcUrl: "https://docs.google.com/spreadsheets/d/15X4SEwlXgJyw_I1ABIMlyLdb6hU_8pF1z3HoQJ_hm3I/edit?usp=drive_link",
+        backupUrl: "https://docs.google.com/document/d/1ITp6htw1CgeP1VUv_KlZsZLM8VwjJRUzW9oj5HQqr3g/edit?usp=drive_link"
     }
 };

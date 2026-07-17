@@ -252,6 +252,12 @@
             background-color: #dbeafe;
         }
 
+        .badge.stage-validation {
+            border-color: #0d9488;
+            color: #115e59;
+            background-color: #ccfbf1;
+        }
+
         .badge.category-green {
             border-color: #10b981;
             color: #064e3b;
@@ -268,6 +274,12 @@
             border-color: #f97316;
             color: #7c2d12;
             background-color: #ffedd5;
+        }
+
+        .badge.category-health {
+            border-color: #ef4444;
+            color: #991b1b;
+            background-color: #fee2e2;
         }
 
         .startup-name {
@@ -374,7 +386,7 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo-area">
-                <div class="logo-box">G0</div>
+                <div class="logo-box">GZ</div>
                 <span class="logo-text">Garage Zero</span>
             </a>
         </div>
@@ -441,10 +453,13 @@
                 let catClass = 'category-tech';
                 if (team.category === 'GreenTech') catClass = 'category-green';
                 else if (team.category === 'MarTech') catClass = 'category-marketing';
+                else if (team.category === 'HealthTech') catClass = 'category-health';
 
                 // Map stage tag class
                 let stageClass = 'stage-ideation';
                 if (team.stage === 'MVP / Prototype' || team.stage === 'MVP') stageClass = 'stage-mvp';
+                else if (team.stage === 'Validation' || team.stage === 'Validating' || team.stage === 'validation') stageClass = 'stage-validation';
+                else if (team.stage === 'Ideation' || team.stage === 'Ideating' || team.stage === 'ideation') stageClass = 'stage-ideation';
 
                 const cardHtml = `
                     <a href="team-detail.html?team=${key}" class="startup-card" data-category="${team.category}">

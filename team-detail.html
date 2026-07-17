@@ -417,14 +417,14 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo-area">
-                <div class="logo-box">G0</div>
+                <div class="logo-box">GZ</div>
                 <span class="logo-text">Garage Zero</span>
             </a>
         </div>
     </header>
 
     <main>
-        <div class="container">
+<div class="container">
             <a href="startups.html" class="back-btn">
                 ← กลับทำเนียบสตาร์ทอัพ
             </a>
@@ -432,7 +432,6 @@
             <div class="showcase-layout">
                 <!-- Left Sidebar: Info Card -->
                 <aside class="team-sidebar">
-                    <div class="team-logo-placeholder" id="sidebar-logo">G</div>
                     <h1 class="team-title" id="sidebar-name">Loading...</h1>
                     
                     <div class="sidebar-badges">
@@ -442,7 +441,7 @@
 
                     <div class="meta-list">
                         <div class="meta-item">
-                            หมวดหมู่ <span>GreenTech</span>
+                            หมวดหมู่ <span id="sidebar-meta-cat">GreenTech</span>
                         </div>
                         <div class="meta-item">
                             สมาชิกทีม <span id="sidebar-members">4 คน</span>
@@ -451,18 +450,16 @@
                             ความต้องการ <span id="sidebar-seeking">Customer validation</span>
                         </div>
                     </div>
-
-                    <a href="mailto:kunanoppadol_j@su.ac.th" class="action-btn">ติดต่อเสนอร่วมทุน</a>
                 </aside>
 
                 <!-- Right Column: Interactive Tabs -->
                 <section class="showcase-content">
                     <!-- Tabs Menu -->
                     <div class="tabs-menu">
-                        <button class="tab-btn active" onclick="switchTab(event, 'tab-summary')">สรุปข้อมูลโครงการ</button>
-                        <button class="tab-btn" onclick="switchTab(event, 'tab-pitch')">Pitch Deck</button>
-                        <button class="tab-btn" onclick="switchTab(event, 'tab-bmc')">BMC Progress</button>
-                        <button class="tab-btn" onclick="switchTab(event, 'tab-backup')">เอกสารสนับสนุน</button>
+                        <button class="tab-btn active" onclick="switchTab(event, 'tab-summary')">ภาพรวม</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-pitch')">สไลด์นำเสนอ</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-bmc')">โมเดลธุรกิจ</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-backup')">ข้อมูลเพิ่มเติม</button>
                     </div>
 
                     <!-- Tab Panes -->
@@ -577,12 +574,30 @@
 
             // Render Sidebar Card Details
             document.title = `Garage Zero - ${team.name}`;
-            document.getElementById('sidebar-logo').innerText = team.name.charAt(0);
             document.getElementById('sidebar-name').innerText = team.name;
             document.getElementById('sidebar-stage').innerText = team.stage;
             document.getElementById('sidebar-category').innerText = team.category;
+            if (document.getElementById('sidebar-meta-cat')) {
+                document.getElementById('sidebar-meta-cat').innerText = team.category;
+            }
             document.getElementById('sidebar-members').innerText = team.members;
             document.getElementById('sidebar-seeking').innerText = team.seeking;
+
+            // Render Funding Info Dynamically if exists
+            const metaList = document.querySelector('.meta-list');
+            if (metaList) {
+                const fundingRow = document.getElementById('sidebar-funding-row');
+                if (fundingRow) fundingRow.remove();
+                
+                if (team.funding) {
+                    const newRow = `
+                        <div class="meta-item" id="sidebar-funding-row">
+                            ทุนสนับสนุน <span>${team.funding}</span>
+                        </div>
+                    `;
+                    metaList.insertAdjacentHTML('beforeend', newRow);
+                }
+            }
 
             // Render Overview Tab Details
             document.getElementById('overview-summary').innerText = team.summary;
