@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Zero - Team Showcase</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Reset & CSS Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #444444;
+            --text-muted: #777777;
+            --accent-color: #000000;
+            --border-color: #eaeaea;
+            --font-sans: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+            --font-display: 'Space Grotesk', 'Sarabun', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+            transform: translateX(-3px);
+        }
+
+        /* Two-column layout */
+        .showcase-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Left Column: Sidebar Card */
+        .team-sidebar {
+            border: 1px solid var(--border-color);
+            padding: 2.25rem 2rem;
+            background: #ffffff;
+            position: sticky;
+            top: 2rem;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .team-logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-title {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-badges {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .badge.stage {
+            border-color: #eab308;
+            color: #854d0e;
+            background-color: #fef9c3;
+        }
+
+        .badge.category {
+            border-color: #10b981;
+            color: #064e3b;
+            background-color: #d1fae5;
+        }
+
+        .meta-list {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+        }
+
+        .meta-item span {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .action-btn {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            font-family: var(--font-sans);
+        }
+
+        .action-btn:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        /* Right Column: Tab Panel */
+        .showcase-content {
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Tabs Menu */
+        .tabs-menu {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-bottom: 2px solid transparent;
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Tab Content */
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* Summary Tab Styles */
+        .overview-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .overview-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Responsive Embed Containers */
+        .embed-container-16-9 {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border: 1px solid var(--border-color);
+            background-color: #fafafa;
+        }
+
+        .embed-container-16-9 iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .embed-container-scrollable {
+            width: 100%;
+            height: 650px;
+            border: 1px solid var(--border-color);
+            background-color: #fafafa;
+        }
+
+        .embed-container-scrollable iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .footer-right {
+            text-align: right;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .showcase-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .team-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            main {
+                padding: 3rem 0;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <a href="startups.html" class="back-btn">
+                ← กลับทำเนียบสตาร์ทอัพ
+            </a>
+
+            <div class="showcase-layout">
+                <!-- Left Sidebar: Info Card -->
+                <aside class="team-sidebar">
+                    <div class="team-logo-placeholder" id="sidebar-logo">G</div>
+                    <h1 class="team-title" id="sidebar-name">Loading...</h1>
+                    
+                    <div class="sidebar-badges">
+                        <span class="badge stage" id="sidebar-stage">Ideation</span>
+                        <span class="badge category" id="sidebar-category">GreenTech</span>
+                    </div>
+
+                    <div class="meta-list">
+                        <div class="meta-item">
+                            หมวดหมู่ <span>GreenTech</span>
+                        </div>
+                        <div class="meta-item">
+                            สมาชิกทีม <span id="sidebar-members">4 คน</span>
+                        </div>
+                        <div class="meta-item">
+                            ความต้องการ <span id="sidebar-seeking">Customer validation</span>
+                        </div>
+                    </div>
+
+                    <a href="mailto:kunanoppadol_j@su.ac.th" class="action-btn">ติดต่อเสนอร่วมทุน</a>
+                </aside>
+
+                <!-- Right Column: Interactive Tabs -->
+                <section class="showcase-content">
+                    <!-- Tabs Menu -->
+                    <div class="tabs-menu">
+                        <button class="tab-btn active" onclick="switchTab(event, 'tab-summary')">สรุปข้อมูลโครงการ</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-pitch')">Pitch Deck</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-bmc')">BMC Progress</button>
+                        <button class="tab-btn" onclick="switchTab(event, 'tab-backup')">เอกสารสนับสนุน</button>
+                    </div>
+
+                    <!-- Tab Panes -->
+                    <div class="tab-contents">
+                        <!-- Tab 1: Executive Summary -->
+                        <div id="tab-summary" class="tab-pane active">
+                            <div class="overview-section">
+                                <div>
+                                    <h2 class="overview-title">บทสรุปผู้บริหาร (Executive Summary)</h2>
+                                    <p class="overview-desc" id="overview-summary">
+                                        กำลังโหลดข้อมูล...
+                                    </p>
+                                </div>
+                                <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                                    <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">สิ่งที่กำลังต้องการการสนับสนุน</h3>
+                                    <p style="color: var(--text-secondary); font-size: 0.95rem;" id="overview-seeking-detail">
+                                        Customer validation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Pitch Deck Embed -->
+                        <div id="tab-pitch" class="tab-pane">
+                            <div class="embed-container-16-9">
+                                <iframe id="iframe-pitch" src="" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: BMC Progress Embed -->
+                        <div id="tab-bmc" class="tab-pane">
+                            <div class="embed-container-scrollable">
+                                <iframe id="iframe-bmc" src=""></iframe>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Backup Data Embed -->
+                        <div id="tab-backup" class="tab-pane">
+                            <div class="embed-container-scrollable">
+                                <iframe id="iframe-backup" src=""></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-left">
+                <div>&copy; 2026 Garage Zero. All rights reserved.</div>
+                <div>Designed for Silpakorn Startup Ecosystem</div>
+            </div>
+            <div class="footer-right">
+                <div>ติดต่อ ผศ.ดร.จารุตม์ คุณานพดล (อ.จา)</div>
+                <div>อีเมล kunanoppadol_j@su.ac.th</div>
+                <div>เบอร์โทร 0818996377</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load shared teams database -->
+    <script src="teams-data.js"></script>
+
+    <!-- Team Data & Tab Switching Logic -->
+    <script>
+
+        // Helper to extract file ID and convert Google Workspace links into preview/embed URLs
+        function convertToEmbedUrl(url, type) {
+            if (!url) return '';
+            const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+            if (!match) return url;
+            const id = match[1];
+            
+            if (type === 'slides') {
+                return `https://docs.google.com/presentation/d/${id}/embed?start=false&loop=false&delayms=3000`;
+            } else if (type === 'sheets') {
+                return `https://docs.google.com/spreadsheets/d/${id}/preview?widget=true&headers=false`;
+            } else if (type === 'docs') {
+                return `https://docs.google.com/document/d/${id}/preview`;
+            }
+            return url;
+        }
+
+        // Tab Switcher Logic
+        function switchTab(evt, tabId) {
+            // Hide all tab panes
+            const panes = document.querySelectorAll('.tab-pane');
+            panes.forEach(pane => pane.classList.remove('active'));
+
+            // Deactivate all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show target pane and activate button
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Load data based on URL parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let teamId = urlParams.get('team');
+            
+            // Default to greenhotelx if not provided or doesn't exist
+            if (!teamId || !teamsDatabase[teamId]) {
+                teamId = 'greenhotelx';
+            }
+
+            const team = teamsDatabase[teamId];
+
+            // Render Sidebar Card Details
+            document.title = `Garage Zero - ${team.name}`;
+            document.getElementById('sidebar-logo').innerText = team.name.charAt(0);
+            document.getElementById('sidebar-name').innerText = team.name;
+            document.getElementById('sidebar-stage').innerText = team.stage;
+            document.getElementById('sidebar-category').innerText = team.category;
+            document.getElementById('sidebar-members').innerText = team.members;
+            document.getElementById('sidebar-seeking').innerText = team.seeking;
+
+            // Render Overview Tab Details
+            document.getElementById('overview-summary').innerText = team.summary;
+            document.getElementById('overview-seeking-detail').innerText = `ทางทีมกำลังอยู่ในระยะเริ่มต้น และกำลังต้องการการสนับสนุนหรือเก็บกรณีศึกษาในด้าน: ${team.seeking}`;
+
+            // Set Embed Source URLs
+            document.getElementById('iframe-pitch').src = convertToEmbedUrl(team.pitchUrl, 'slides');
+            document.getElementById('iframe-bmc').src = convertToEmbedUrl(team.bmcUrl, 'sheets');
+            document.getElementById('iframe-backup').src = convertToEmbedUrl(team.backupUrl, 'docs');
+        });
+    </script>
+</body>
+</html>

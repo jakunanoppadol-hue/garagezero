@@ -261,11 +261,11 @@
                     <div class="stat-number" id="student-count" data-target="114">0</div>
                 </a>
 
-                <!-- Startup Team Stat -->
-                <div class="stat-card">
+                <!-- Startup Team Stat (Clickable) -->
+                <a href="startups.html" class="stat-card clickable-card">
                     <div class="stat-label">ทีมสตาร์ทอัพ</div>
-                    <div class="stat-number">รอระบุ</div>
-                </div>
+                    <div class="stat-number" id="startup-count" data-target="2">0</div>
+                </a>
 
                 <!-- Ecosystem Stat -->
                 <div class="stat-card">
@@ -290,10 +290,22 @@
         </div>
     </footer>
 
+    <!-- Load shared teams database -->
+    <script src="teams-data.js"></script>
+
     <!-- Count-up Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const studentCounter = document.getElementById('student-count');
+            const startupCounter = document.getElementById('startup-count');
+
+            // Determine target number of startups dynamically from the database
+            const startupCountTarget = typeof teamsDatabase !== 'undefined' ? Object.keys(teamsDatabase).length : 0;
+
+            // Update HTML data-target attribute dynamically
+            if (startupCounter) {
+                startupCounter.setAttribute('data-target', startupCountTarget);
+            }
 
             // Format number helper
             const formatNumber = (num) => {
@@ -325,8 +337,9 @@
                 requestAnimationFrame(updateCount);
             };
 
-            // Animate value (pure number without prefix)
+            // Animate values (pure numbers without prefix)
             animateCounter(studentCounter, 114, "");
+            animateCounter(startupCounter, startupCountTarget, "");
         });
     </script>
 </body>
