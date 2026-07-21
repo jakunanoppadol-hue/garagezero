@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Zero - Ecosystem Supporter Network</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Reset & CSS Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #444444;
+            --text-muted: #777777;
+            --accent-color: #000000;
+            --border-color: #eaeaea;
+            --font-sans: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+            --font-display: 'Space Grotesk', 'Sarabun', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation Styles */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .logo-area:hover {
+            opacity: 0.8;
+        }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+            background: #000000;
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            letter-spacing: -0.05em;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 4rem 0;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+            transform: translateX(-3px);
+        }
+
+        /* Title Area */
+        .page-header {
+            margin-bottom: 3.5rem;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* Filter Controls */
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-radius: 0;
+            font-family: var(--font-sans);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background-color: #fcfcfc;
+        }
+
+        /* Dropdown/Select Filter */
+        .select-filter-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .select-filter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .select-filter {
+            padding: 0.6rem 1.5rem 0.6rem 1rem;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .select-filter:hover, .select-filter:focus {
+            border-color: var(--text-primary);
+        }
+
+        /* Ecosystem Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .partner-card {
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            background: #ffffff;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .partner-card:hover {
+            border-color: var(--text-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Badges styling */
+        .badge-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .badge.verified {
+            border-color: #10b981;
+            color: #064e3b;
+            background-color: #d1fae5;
+        }
+
+        .badge.cat-prototyping {
+            border-color: #3b82f6;
+            color: #1e3a8a;
+            background-color: #dbeafe;
+        }
+
+        .badge.cat-fashion {
+            border-color: #ec4899;
+            color: #701a75;
+            background-color: #fce7f3;
+        }
+
+        .badge.cat-professional {
+            border-color: #8b5cf6;
+            color: #3b0764;
+            background-color: #ede9fe;
+        }
+
+        .partner-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .partner-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .partner-meta {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .partner-location {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .contact-btn {
+            background: none;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-sans);
+        }
+
+        .contact-btn:hover {
+            background: var(--text-primary);
+            color: #ffffff;
+        }
+
+        /* Empty State */
+        .empty-state {
+            grid-column: span 2;
+            text-align: center;
+            padding: 5rem 2rem;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .empty-icon {
+            font-size: 2.5rem;
+            color: #d1d5db;
+        }
+
+        /* Modal Contact Dialog */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border: 1px solid var(--text-primary);
+            padding: 3rem 2.5rem;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            padding: 0.25rem 0;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .contact-value {
+            color: var(--text-primary);
+        }
+
+        .contact-value a {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .footer-right {
+            text-align: right;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            main {
+                padding: 3rem 0;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Logo & Brand -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-area">
+                <div class="logo-box">GZ</div>
+                <span class="logo-text">Garage Zero</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                ← กลับหน้าหลัก
+            </a>
+
+            <div class="page-header">
+                <h1 class="page-title">ระบบนิเวศผู้ให้บริการสนับสนุน</h1>
+                <p class="page-subtitle">
+                    ทำเนียบร้านค้าและผู้ให้บริการสนับสนุนด้านเทคโนโลยี การขึ้นรูปวัสดุ และบริการทางธุรกิจสำหรับสตาร์ทอัพ
+                </p>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <!-- Parent Category Filter Buttons -->
+                <div class="filters">
+                    <button class="filter-btn active" onclick="filterCategory('all')">ทั้งหมด</button>
+                    <button class="filter-btn" onclick="filterCategory('Prototyping')">Makers & Prototyping</button>
+                    <button class="filter-btn" onclick="filterCategory('Fashion')">Fashion & Jewelry</button>
+                    <button class="filter-btn" onclick="filterCategory('Professional')">Professional Services</button>
+                </div>
+
+                <!-- Dropdown Select Filter for Specific WorkType -->
+                <div class="select-filter-wrapper">
+                    <label class="select-filter-label" for="worktype-select">ประเภทงาน:</label>
+                    <select class="select-filter" id="worktype-select" onchange="filterWorkType()">
+                        <option value="all">ทั้งหมด</option>
+                        <option value="งานพิมพ์สามมิติ">งานพิมพ์สามมิติ</option>
+                        <option value="งานไม้">งานไม้</option>
+                        <option value="งานเหล็ก">งานเหล็ก</option>
+                        <option value="งานตัดเย็บวัสดุผ้า">งานตัดเย็บวัสดุผ้า</option>
+                        <option value="งานเครื่องหนัง">งานเครื่องหนัง</option>
+                        <option value="งานเครื่องประดับ">งานเครื่องประดับ</option>
+                        <option value="งานกระเบื้อง">งานกระเบื้อง</option>
+                        <option value="งานเซรามิก">งานเซรามิก</option>
+                        <option value="งานการตลาดดิจิทัล">งานการตลาดดิจิทัล</option>
+                        <option value="งานบัญชี">งานบัญชี</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Partners Cards Grid -->
+            <div class="cards-grid" id="partners-list">
+                <!-- Generated Dynamically from ecosystem-data.js -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title" id="modal-partner-name">ช่องทางติดต่อ</h3>
+            <div class="contact-list" id="modal-contact-list">
+                <!-- Dynamically Populated -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-left">
+                <div>&copy; 2026 Garage Zero. All rights reserved.</div>
+                <div>Designed for Silpakorn Startup Ecosystem</div>
+            </div>
+            <div class="footer-right">
+                <div>ติดต่อ ผศ.ดร.จารุตม์ คุณานพดล (อ.จา)</div>
+                <div>อีเมล kunanoppadol_j@su.ac.th</div>
+                <div>เบอร์โทร 0818996377</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Ecosystem Database -->
+    <script src="ecosystem-data.js"></script>
+
+    <!-- Rendering & Filtering Scripts -->
+    <script>
+        let activeCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPartners();
+        });
+
+        // Dynamic rendering of supporter cards
+        function renderPartners() {
+            const container = document.getElementById('partners-list');
+            if (!container || typeof ecosystemDatabase === 'undefined') return;
+
+            container.innerHTML = '';
+
+            const keys = Object.keys(ecosystemDatabase);
+
+            if (keys.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🛠️</div>
+                        <h3 style="font-family: var(--font-display); font-weight: 700; color: var(--text-primary); margin-top: 0.5rem;">อยู่ระหว่างการเริ่มสะสมฐานข้อมูล</h3>
+                        <p style="font-size: 0.9rem; max-width: 400px; line-height: 1.5;">
+                            ขณะนี้ยังไม่มีร้านค้าหรือผู้ให้บริการในระบบนิเวศ หากต้องการขึ้นทะเบียนเพิ่มข้อมูล สามารถแจ้งแอดมินหรือ ผศ.ดร.จารุตม์ เพื่อนำรายชื่อขึ้นระบบได้ทันที
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            keys.forEach(key => {
+                const partner = ecosystemDatabase[key];
+
+                // Parent Category CSS Class Mapping
+                let catClass = 'cat-prototyping';
+                let catLabel = 'Prototyping';
+                if (partner.category === 'Fashion') {
+                    catClass = 'cat-fashion';
+                    catLabel = 'Fashion & Jewelry';
+                } else if (partner.category === 'Professional') {
+                    catClass = 'cat-professional';
+                    catLabel = 'Professional Services';
+                } else {
+                    catLabel = 'Makers & Prototyping';
+                }
+
+                // Check Verified
+                const verifiedBadge = partner.verified ? `<span class="badge verified">Verified</span>` : '';
+
+                const cardHtml = `
+                    <div class="partner-card" data-category="${partner.category}" data-worktype="${partner.workType}">
+                        <div class="badge-row">
+                            ${verifiedBadge}
+                            <span class="badge ${catClass}">${catLabel}</span>
+                            <span class="badge" style="border-color: var(--text-muted); color: var(--text-secondary);">${partner.workType}</span>
+                        </div>
+                        <h2 class="partner-name">${partner.name}</h2>
+                        <p class="partner-desc">${partner.description}</p>
+                        <div class="partner-meta">
+                            <span class="partner-location">📍 ${partner.location}</span>
+                            <button class="contact-btn" onclick="openContactModal('${key}')">ติดต่อ</button>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        // Parent Category Filtering
+        function filterCategory(category) {
+            activeCategory = category;
+            
+            // Toggle active class on buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // Reset WorkType dropdown select to 'all'
+            document.getElementById('worktype-select').value = 'all';
+
+            applyCombinedFilters();
+        }
+
+        // Specific WorkType Dropdown Filtering
+        function filterWorkType() {
+            applyCombinedFilters();
+        }
+
+        // Apply Combined Filters (Category + WorkType)
+        function applyCombinedFilters() {
+            const selectedWorkType = document.getElementById('worktype-select').value;
+            const cards = document.querySelectorAll('#partners-list .partner-card');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardWork = card.getAttribute('data-worktype');
+
+                const matchesCat = (activeCategory === 'all' || cardCat === activeCategory);
+                const matchesWork = (selectedWorkType === 'all' || cardWork === selectedWorkType);
+
+                if (matchesCat && matchesWork) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Modal Logic
+        function openContactModal(key) {
+            const partner = ecosystemDatabase[key];
+            if (!partner) return;
+
+            document.getElementById('modal-partner-name').innerText = partner.name;
+            const contactList = document.getElementById('modal-contact-list');
+            contactList.innerHTML = '';
+
+            let hasContact = false;
+
+            if (partner.contact) {
+                const fields = [
+                    { key: 'phone', label: '📞 เบอร์โทร', link: 'tel:' },
+                    { key: 'line', label: '💬 LINE ID', link: '' },
+                    { key: 'facebook', label: '👤 Facebook Page', link: '' },
+                    { key: 'email', label: '✉️ อีเมล', link: 'mailto:' },
+                    { key: 'website', label: '🌐 เว็บไซต์', link: '' }
+                ];
+
+                fields.forEach(f => {
+                    const val = partner.contact[f.key];
+                    if (val && val.trim() !== '') {
+                        hasContact = true;
+                        let valHtml = val;
+                        
+                        // Check if it's a URL or needs a link prefix
+                        if (val.startsWith('http://') || val.startsWith('https://')) {
+                            valHtml = `<a href="${val}" target="_blank">${val}</a>`;
+                        } else if (f.link !== '') {
+                            valHtml = `<a href="${f.link}${val}">${val}</a>`;
+                        }
+                        
+                        const row = `
+                            <div class="contact-row">
+                                <span class="contact-label">${f.label}</span>
+                                <span class="contact-value">${valHtml}</span>
+                            </div>
+                        `;
+                        contactList.insertAdjacentHTML('beforeend', row);
+                    }
+                });
+            }
+
+            if (!hasContact) {
+                contactList.innerHTML = '<div style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">ไม่มีช่องทางการติดต่อบันทึกในระบบ</div>';
+            }
+
+            document.getElementById('contact-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('contact-modal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside contents
+        window.onclick = function(event) {
+            const modal = document.getElementById('contact-modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
