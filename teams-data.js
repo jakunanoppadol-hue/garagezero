@@ -36,5 +36,18 @@ const teamsDatabase = {
         pitchUrl: "https://docs.google.com/presentation/d/1h6A2tTQA42RRBzfc_W3avSvnAmsblapbJhJqDqDXUV8/edit?usp=drive_link",
         bmcUrl: "https://docs.google.com/spreadsheets/d/15X4SEwlXgJyw_I1ABIMlyLdb6hU_8pF1z3HoQJ_hm3I/edit?usp=drive_link",
         backupUrl: "https://docs.google.com/document/d/1ITp6htw1CgeP1VUv_KlZsZLM8VwjJRUzW9oj5HQqr3g/edit?usp=drive_link"
+    },
+    veridianexp: {
+        name: "VeridianEXP",
+        category: "EdTech",
+        stage: "REGISTERING",
+        seeking: "Partner",
+        members: "4 คน",
+        description: "จัดกิจกรรมการศึกษาให้นักเรียนและนักศึกษาทั้งแบบ Inbound และ Outbound",
+        summary: "VeridianEXP มุ่งเน้นการจัดกิจกรรมการเรียนรู้และการท่องเที่ยวเชิงสร้างสรรค์ระดับการศึกษา (Educational & Experiential Travel) สำหรับกลุ่มเป้าหมายนักเรียนและนักศึกษา ทั้งในรูปแบบดึงดูดผู้เรียนเข้าสู่พื้นที่ (Inbound) และนำผู้เรียนไปศึกษาดูงานแลกเปลี่ยนภายนอกหรือต่างประเทศ (Outbound) เพื่อเสริมทักษะชีวิตและสร้างประสบการณ์การเรียนรู้จริงนอกห้องเรียน",
+        funding: "กองทุนส่งเสริมวิสาหกิจ มศก.",
+        pitchUrl: "https://docs.google.com/presentation/d/1R2i7YY7ub-AohHtycy5AAXOK7kt_baJvPzZp8uYeVHY/edit?usp=drive_link",
+        bmcUrl: "https://docs.google.com/spreadsheets/d/1efxhqORb5J2JnlMiZWL4FoAWw8EZ9DXHejjmGv4MMn0/edit?usp=drive_link",
+        backupUrl: "https://docs.google.com/document/d/1bXNftehVb5nuXyC2VlfyYrkw3rwanyvlkPUtAJDxmfA/edit?usp=drive_link"
     }
 };

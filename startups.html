@@ -279,6 +279,12 @@
             background-color: #ccfbf1;
         }
 
+        .badge.stage-registering {
+            border-color: #6366f1;
+            color: #312e81;
+            background-color: #e0e7ff;
+        }
+
         .badge.category-green {
             border-color: #10b981;
             color: #064e3b;
@@ -484,6 +490,7 @@
                 if (team.stage === 'MVP / Prototype' || team.stage === 'MVP') stageClass = 'stage-mvp';
                 else if (team.stage === 'Validation' || team.stage === 'Validating' || team.stage === 'validation') stageClass = 'stage-validation';
                 else if (team.stage === 'Ideation' || team.stage === 'Ideating' || team.stage === 'ideation') stageClass = 'stage-ideation';
+                else if (team.stage === 'Registering' || team.stage === 'REGISTERING' || team.stage === 'registering') stageClass = 'stage-registering';
 
                 const cardHtml = `
                     <a href="team-detail.html?team=${key}" class="startup-card" data-category="${team.category}">
