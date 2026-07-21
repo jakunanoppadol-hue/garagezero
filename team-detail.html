@@ -100,6 +100,27 @@
             letter-spacing: -0.02em;
         }
 
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
+        }
+
         /* Main Content */
         main {
             flex: 1;
@@ -420,6 +441,9 @@
                 <div class="logo-box">GZ</div>
                 <span class="logo-text">Garage Zero</span>
             </a>
+            <nav class="header-nav">
+                <a href="regulations.html" class="nav-link">ระเบียบที่เกี่ยวข้อง</a>
+            </nav>
         </div>
     </header>
 
@@ -515,9 +539,9 @@
                 <div>Designed for Silpakorn Startup Ecosystem</div>
             </div>
             <div class="footer-right">
-                <div>ติดต่อ ผศ.ดร.จารุตม์ คุณานพดล (อ.จา)</div>
+                <div>ติดต่อสอบถาม ผศ.ดร.จารุตม์ คุณานพดล (อ.จา)</div>
+                <div>ศูนย์บริหารจัดการวิชาศึกษาทั่วไปและพัฒนาการเรียนรู้ภาษาอังกฤษ</div>
                 <div>อีเมล kunanoppadol_j@su.ac.th</div>
-                <div>เบอร์โทร 0818996377</div>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage Zero - Learners List</title>
+    <title>Garage Zero - Related Regulations</title>
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +100,7 @@
             letter-spacing: -0.02em;
         }
 
+        /* Navbar Header */
         .header-nav {
             display: flex;
             gap: 1.5rem;
@@ -166,81 +167,90 @@
         .page-subtitle {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
         }
 
-        /* Table/List Area */
-        .learners-table-wrapper {
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            overflow-x: auto;
+        /* Regulations Timeline/List */
+        .regulations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reg-card {
             border: 1px solid var(--border-color);
+            padding: 2.5rem;
             background: #ffffff;
-        }
-
-        .learners-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-            font-size: 0.95rem;
-            min-width: 700px;
-        }
-
-        .learners-table th, .learners-table td {
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .learners-table th {
-            background-color: #fafafa;
-            font-weight: 600;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .learners-table tr {
             transition: var(--transition-smooth);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
         }
 
-        .learners-table tbody tr:hover {
-            background-color: #fbfbfb;
+        .reg-card:hover {
+            border-color: var(--text-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
         }
 
-        /* Code formatting in table */
-        .code-cell {
-            font-family: var(--font-display);
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: #f7f7f7;
-            padding: 0.25rem 0.5rem;
+        .reg-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .reg-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             font-size: 0.85rem;
-            border-radius: 2px;
-            display: inline-block;
+            color: var(--text-muted);
+            flex-wrap: wrap;
         }
 
-        .course-title {
+        .reg-badge {
+            font-size: 0.75rem;
             font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            background-color: #fafafa;
+        }
+
+        .reg-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
             color: var(--text-primary);
         }
 
-        .number-cell {
-            font-family: var(--font-display);
-            font-weight: 600;
+        .reg-action {
+            flex-shrink: 0;
+            margin-top: 0.25rem;
         }
 
-        /* Total Row Styling */
-        .total-row {
-            background-color: #fcfcfc;
-            font-weight: 700;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .total-row td {
-            padding: 1.5rem;
-            border-bottom: none;
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: 1px solid var(--text-primary);
             color: var(--text-primary);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .pdf-btn:hover {
+            background: var(--text-primary);
+            color: #ffffff;
         }
 
         /* Footer */
@@ -290,8 +300,23 @@
                 font-size: 2rem;
             }
             
+            .reg-card {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.75rem;
+            }
+
+            .pdf-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .reg-action {
+                width: 100%;
+            }
+
             main {
-                padding: 3.5rem 0;
+                padding: 3rem 0;
             }
 
             footer .container {
@@ -316,69 +341,27 @@
                 <span class="logo-text">Garage Zero</span>
             </a>
             <nav class="header-nav">
-                <a href="regulations.html" class="nav-link">ระเบียบที่เกี่ยวข้อง</a>
+                <a href="regulations.html" class="nav-link active">ระเบียบที่เกี่ยวข้อง</a>
             </nav>
         </div>
     </header>
 
     <main>
         <div class="container">
-            <!-- ให้แทนที่เครื่องหมาย # ด้วย URL หน้าแรกบน Google Sites ของคุณ เช่น https://sites.google.com/view/.../home -->
             <a href="index.html" class="back-btn">
                 ← กลับหน้าหลัก
             </a>
 
             <div class="page-header">
-                <h1 class="page-title">ข้อมูลผู้เรียน</h1>
+                <h1 class="page-title">ระเบียบที่เกี่ยวข้อง</h1>
                 <p class="page-subtitle">
-                    รายละเอียดวิชา กลุ่มเรียน ปีการศึกษา และจำนวนผู้เรียนใช้เนื้อหา <a href="https://drive.google.com/file/d/17_Mu3mIT8QjZQyS8TbuggwZoYfp67CJD/view?usp=sharing" target="_blank" style="font-weight: 700; color: var(--text-primary); text-decoration: underline; text-underline-offset: 4px; transition: var(--transition-smooth);">Lean Launchpad</a>
+                    รวบรวมระเบียบสำนักนายกรัฐมนตรี ข้อบังคับ และประกาศของมหาวิทยาลัยศิลปากร ที่เกี่ยวข้องกับการส่งเสริมงานนวัตกรรม การดำเนินงานลักษณะวิสาหกิจ และการร่วมลงทุนกับเอกชน (Holding Company)
                 </p>
             </div>
 
-            <div class="learners-table-wrapper">
-                <table class="learners-table">
-                    <thead>
-                        <tr>
-                            <th>รหัสวิชา</th>
-                            <th>ชื่อวิชา</th>
-                            <th>กลุ่ม</th>
-                            <th>การศึกษา</th>
-                            <th>ภาคการศึกษา</th>
-                            <th style="text-align: right;">จำนวนผู้เรียน</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>615565-165</td>
-                            <td><span class="course-title">เรื่องคัดเฉพาะทางวิศวกรรมเครื่องกล 1</span></td>
-                            <td class="number-cell">1</td>
-                            <td class="number-cell">2569</td>
-                            <td class="number-cell">1</td>
-                            <td class="number-cell" style="text-align: right;">41 คน</td>
-                        </tr>
-                        <tr>
-                            <td>623541-165</td>
-                            <td><span class="course-title">คอมพิวเตอร์สำหรับธุรกิจวิศวกรรม</span></td>
-                            <td class="number-cell">1</td>
-                            <td class="number-cell">2569</td>
-                            <td class="number-cell">1</td>
-                            <td class="number-cell" style="text-align: right;">29 คน</td>
-                        </tr>
-                        <tr>
-                            <td>SU301-162</td>
-                            <td><span class="course-title">พลเมืองตื่นรู้</span></td>
-                            <td class="number-cell">2021</td>
-                            <td class="number-cell">2569</td>
-                            <td class="number-cell">1</td>
-                            <td class="number-cell" style="text-align: right;">44 คน</td>
-                        </tr>
-                        <!-- Row Total -->
-                        <tr class="total-row">
-                            <td colspan="5" style="text-align: right; font-weight: 700;">รวม</td>
-                            <td class="number-cell" style="text-align: right; font-weight: 700; font-size: 1.1rem;">114 คน</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Regulations List Container -->
+            <div class="regulations-list" id="regulations-container">
+                <!-- Dynamically populated from regulations-data.js -->
             </div>
         </div>
     </main>
@@ -397,5 +380,44 @@
         </div>
     </footer>
 
+    <!-- Load regulations database -->
+    <script src="regulations-data.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRegulations();
+        });
+
+        function renderRegulations() {
+            const container = document.getElementById('regulations-container');
+            if (!container || typeof regulationsDatabase === 'undefined') return;
+
+            container.innerHTML = '';
+
+            regulationsDatabase.forEach(reg => {
+                // Extract year from title (look for พ.ศ. xxxx)
+                const yearMatch = reg.title.match(/พ\.ศ\.\s*(\d{4})/);
+                const yearText = yearMatch ? `พ.ศ. ${yearMatch[1]}` : 'ระเบียบ';
+
+                const cardHtml = `
+                    <div class="reg-card">
+                        <div class="reg-content">
+                            <div class="reg-meta">
+                                <span class="reg-badge">${yearText}</span>
+                                <span>📅 ประกาศเมื่อ: ${reg.date}</span>
+                            </div>
+                            <h2 class="reg-title">${reg.title}</h2>
+                        </div>
+                        <div class="reg-action">
+                            <a href="${reg.url}" target="_blank" class="pdf-btn">
+                                📄 เปิดเอกสาร (PDF)
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+    </script>
 </body>
 </html>
