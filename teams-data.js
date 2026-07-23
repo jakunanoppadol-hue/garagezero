@@ -49,5 +49,17 @@ const teamsDatabase = {
         pitchUrl: "https://docs.google.com/presentation/d/1R2i7YY7ub-AohHtycy5AAXOK7kt_baJvPzZp8uYeVHY/edit?usp=drive_link",
         bmcUrl: "https://docs.google.com/spreadsheets/d/1efxhqORb5J2JnlMiZWL4FoAWw8EZ9DXHejjmGv4MMn0/edit?usp=drive_link",
         backupUrl: "https://docs.google.com/document/d/1bXNftehVb5nuXyC2VlfyYrkw3rwanyvlkPUtAJDxmfA/edit?usp=drive_link"
+    },
+    startupmakerdatabase: {
+        name: "StartupMakerDatabase",
+        category: "ManuTech",
+        stage: "Ideating",
+        seeking: "Supplier Data",
+        members: "3 คน",
+        description: "รวมรวมและจัดทำฐานข้อมูลผู้จัดสร้าง (Maker) สำหรับรองรับงานสตาร์ทอัพเพื่อสร้างผลิตภัณฑ์ต้นแบบรวมถึงการผลิตจำนวนไม่มาก",
+        summary: "StartupMakerDatabase เป็นระบบฐานข้อมูลและแพลตฟอร์มสารบัญผู้รับผลิตและจัดสร้างงานต้นแบบ (Maker Directory) สำหรับสนับสนุนกลุ่มสตาร์ทอัพโดยเฉพาะ ช่วยรวบรวมร้านค้า ช่างฝีมือ โรงงานขนาดเล็ก และผู้เชี่ยวชาญด้านงานประดิษฐ์ขึ้นรูปผลิตภัณฑ์จริงหลากหลายประเภท (เช่น งานไม้ โลหะ พิมพ์ 3 มิติ คราฟต์) เพื่อให้นักพัฒนานวัตกรรมสามารถเชื่อมต่อและสั่งผลิตงานต้นแบบและสินค้าล็อทเล็ก (Low-volume production) ได้อย่างประหยัดและรวดเร็ว",
+        pitchUrl: "https://docs.google.com/presentation/d/1KZZqxEW9gm0CjYEVs_4pL9XpNJm4jGn7CDCIL6CEtc0/edit?usp=drive_link",
+        bmcUrl: "https://docs.google.com/spreadsheets/d/1WEpyUHZMf7mHuzIBRdoYD4YD4QP5zUnCSTnlXT0xc_8/edit?usp=drive_link",
+        backupUrl: "https://docs.google.com/document/d/1J2TU2CXp-m-z-QtR3mAom2guf3tKwcuZcTUcPhnXjZQ/edit?usp=drive_link"
     }
 };

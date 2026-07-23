@@ -309,6 +309,12 @@
             background-color: #fee2e2;
         }
 
+        .badge.category-manu {
+            border-color: #64748b;
+            color: #1e293b;
+            background-color: #f1f5f9;
+        }
+
         .startup-name {
             font-family: var(--font-display);
             font-size: 1.6rem;
@@ -441,6 +447,7 @@
                 <button class="filter-btn" onclick="filterCategory('MarTech')">MarTech</button>
                 <button class="filter-btn" onclick="filterCategory('EdTech')">EdTech</button>
                 <button class="filter-btn" onclick="filterCategory('HealthTech')">HealthTech</button>
+                <button class="filter-btn" onclick="filterCategory('ManuTech')">ManuTech</button>
             </div>
 
             <!-- Startup Grid -->
@@ -484,6 +491,7 @@
                 if (team.category === 'GreenTech') catClass = 'category-green';
                 else if (team.category === 'MarTech') catClass = 'category-marketing';
                 else if (team.category === 'HealthTech') catClass = 'category-health';
+                else if (team.category === 'ManuTech') catClass = 'category-manu';
 
                 // Map stage tag class
                 let stageClass = 'stage-ideation';
